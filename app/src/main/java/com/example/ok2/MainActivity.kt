@@ -362,7 +362,7 @@ fun CoordsScreen(navController: NavController, dbHandler: DBHandler) {
         val (selectedOption, onOptionSelected) = remember { mutableStateOf(radioOptions[size/2]) }
         val cheevos_n = dbHandler.cheevos_Name
         val cheevos_list_n = cheevos_n.split("*")
-        if (world_counter >= 13 || "TOKI WO TOMARE" in cheevos_list_n && gp_option_global == "STANDARD"){
+        if (world_counter >= 13 || "TOKI WO TOMARE" in cheevos_list_n && gp_option_global != "CONTINENTAL"){
             radioOptions.add("THE WORLD")
             if ("TOKI WO TOMARE" in cheevos_list_n == false){
                 dbHandler.addEntry2("TOKI WO TOMARE", getDate())
@@ -1359,43 +1359,43 @@ fun generateCoords(lat: Double, long: Double, lat_long_chk: Int, selectedOption:
         }
     } else if (gp_option_global == "CONTINENTAL"){
         if (lat_long_chk == 0){
-            if (selectedOption == "AFRICA"){
+            if (selectedOption == "CONTINENTAL/AFRICA"){
                 random_lat = (Random.nextFloat() * (35.5 - -35.5) + -35.5)
             }
-            if (selectedOption == "ASIA"){
+            if (selectedOption == "CONTINENTAL/ASIA"){
                 random_lat = (Random.nextFloat() * (77.0 - -10.0) + -10.0)
             }
-            if (selectedOption == "AUSTRALIA"){
+            if (selectedOption == "CONTINENTAL/AUSTRALIA"){
                 random_lat = (Random.nextFloat() * (-10 - -45.0) + -45.0)
             }
-            if (selectedOption == "EUROPE"){
+            if (selectedOption == "CONTINENTAL/EUROPE"){
                 random_lat = (Random.nextFloat() * (72.0 - 35.5) + 35.5)
             }
-            if (selectedOption == "NORTH AMERICA"){
+            if (selectedOption == "CONTINENTAL/NORTH AMERICA"){
                 random_lat = (Random.nextFloat() * (75.0 - 10.0) + 10.0)
             }
-            if (selectedOption == "SOUTH AMERICA"){
+            if (selectedOption == "CONTINENTAL/SOUTH AMERICA"){
                 random_lat = (Random.nextFloat() * (10.0 - -55.0) + -55.0)
             }
             result = random_lat
         }
         if (lat_long_chk == 1){
-            if (selectedOption == "AFRICA"){
+            if (selectedOption == "CONTINENTAL/AFRICA"){
                 random_long = (Random.nextFloat() * (50.0 - -15.0) + -15.0)
             }
-            if (selectedOption == "ASIA"){
+            if (selectedOption == "CONTINENTAL/ASIA"){
                 random_long = (Random.nextFloat() * (180.0 - 60.0) + 60.0)
             }
-            if (selectedOption == "AUSTRALIA"){
+            if (selectedOption == "CONTINENTAL/AUSTRALIA"){
                 random_long = (Random.nextFloat() * (175.0 - 115.0) + 115.0)
             }
-            if (selectedOption == "EUROPE"){
+            if (selectedOption == "CONTINENTAL/EUROPE"){
                 random_long = (Random.nextFloat() * (60.0 - -30.0) + -30.0)
             }
-            if (selectedOption == "NORTH AMERICA"){
+            if (selectedOption == "CONTINENTAL/NORTH AMERICA"){
                 random_long = (Random.nextFloat() * (-60.0 - -175.0) + -175.0)
             }
-            if (selectedOption == "SOUTH AMERICA"){
+            if (selectedOption == "CONTINENTAL/SOUTH AMERICA"){
                 random_long = (Random.nextFloat() * (-81.0 - -33.0) + -33.0)
             }
 
