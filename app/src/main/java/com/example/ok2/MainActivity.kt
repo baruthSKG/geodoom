@@ -873,7 +873,7 @@ fun cheevoChecker(dbHandler: DBHandler, geocoder: Geocoder, time_taken: String){
     if (getDistance_Custom(37.4175, -81.490556) < 0.05) {
         dbHandler.addEntry2("SIGIL CASTER", dateend_global)
     }
-    if (getDistance_Custom(41.0, 93.0) < 0.05) {
+    if (getDistance_Custom(41.0, -93.0) < 0.05) {
         dbHandler.addEntry2("MAP REF", dateend_global)
     }
     if (getDistance_Custom(40.109972, -88.216556) < 0.05) {
