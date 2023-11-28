@@ -7,7 +7,6 @@ import android.location.Geocoder
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.BorderStroke
@@ -58,8 +57,6 @@ import com.example.ok2.ui.theme.Ok2Theme
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.location.LocationServices
-import com.google.android.material.snackbar.Snackbar
-import org.apache.commons.lang3.StringUtils.substringBefore
 import java.math.RoundingMode
 import java.text.DecimalFormat
 import java.text.NumberFormat
@@ -167,7 +164,6 @@ fun GD_Logo() {
 
 @Composable
 fun MainScreen(navController: NavController) {
-    Log.d("RANGE OPTION GLOBAL", "$range_option_global")
     if (update_chk){
         getLastKnownLocation()
         update_chk = false
@@ -652,11 +648,6 @@ fun FinishScreen(navController: NavController, dbHandler: DBHandler, geocoder: G
     }
 }
 
-@Composable
-fun TransitionScreen(navController: NavController){
-
-}
-
 fun getTotalTime(): String{
     var seconds = ((tend_global - tstart_global) / 1000)
     var minutes = 0.0
@@ -854,7 +845,7 @@ fun cheevoChecker(dbHandler: DBHandler, geocoder: Geocoder, time_taken: String){
     // time cheevos
     var time_ss = time_taken.substringBefore(",")
     var t_kword = ""
-    if (time_ss.substringAfter(" ") == "minutes"){
+    if (time_ss.substringAfter(" ") == "hours"){
         t_kword = time_ss.substringBefore(" ")
         if (t_kword.toInt() > 336 && rank_global != "D"){
             dbHandler.addEntry2("I DON'T LIKE THIS GAME THAT MUCH, ANYWAY", dateend_global)
